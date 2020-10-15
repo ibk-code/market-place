@@ -1,0 +1,63 @@
+.admin-login {
+  display: flex;
+  width: 100%;
+  & > div {
+    width: 50%;
+  }
+
+  .market-desc {
+    background-image: linear-gradient(
+        to right top,
+        rgba(0, 148, 50, 0.8),
+        rgba(0, 148, 50, 0.8)
+      ),
+      url("../../asset/img/market.jpg");
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .admin-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 1rem;
+    height: 100vh;
+
+    .mobile-img {
+      display: none;
+    }
+
+    form {
+      h1 {
+        span {
+          color: $primary-green;
+        }
+      }
+      label {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .admin-login {
+    .market-desc {
+      display: none;
+    }
+
+    .admin-form {
+      width: 100%;
+
+      .mobile-img {
+        display: block;
+        margin: 0 auto;
+        height: 100px;
+      }
+    }
+  }
+}
