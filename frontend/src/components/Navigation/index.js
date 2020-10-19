@@ -7,12 +7,14 @@ class Navigation extends React.Component {
     return (
       <React.Fragment>
         <div className="nav-wrap shadow">
-          <Container>
-            <h1>
-              <Link to="/" className="orange">
-                A.M<small>News</small>
-              </Link>
-            </h1>
+          <Container fluid>
+            <Link to="/" arial-label="Market Place Home">
+              <img
+                src="./asset/img/logo.png"
+                className="img-fluid"
+                alt="Market Place Logo"
+              />
+            </Link>
           </Container>
         </div>
       </React.Fragment>

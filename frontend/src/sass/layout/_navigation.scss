@@ -2,22 +2,17 @@
   background: $shade-white;
   padding-top: 0.4rem;
   padding-bottom: 0.4rem;
+  a {
+    font-size: 2.2rem;
+    font-weight: 900;
+    font-style: italic;
 
-  h1 {
-    a {
-      font-size: 2.2rem;
-      font-weight: 900;
-      font-style: italic;
+    img {
+      height: 70px;
+    }
 
-      small {
-        font-size: 0.8rem;
-        font-style: italic;
-        color: $shade-black;
-      }
-
-      &:hover {
-        text-decoration: none;
-      }
+    &:hover {
+      text-decoration: none;
     }
   }
 }

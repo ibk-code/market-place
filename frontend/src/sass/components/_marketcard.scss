@@ -1,0 +1,33 @@
+.market-card {
+  background-color: $shade-white;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  height: 300px;
+  width: 300px;
+
+  img {
+    height: 150px;
+    width: 100%;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    object-fit: cover;
+  }
+
+  .market-info {
+    line-height: 0.9;
+    padding: 1.3rem;
+
+    button {
+      background-color: transparent;
+      border: none;
+      color: $shade-grey;
+      padding: 0;
+      transition: 0.5s ease-in;
+      font-weight: 600;
+
+      &:hover {
+        color: $primary-orange;
+      }
+    }
+  }
+}

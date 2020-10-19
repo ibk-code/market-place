@@ -3,21 +3,20 @@ import Seo from "../components/Seo/";
 import Navigation from "../components/Navigation";
 import MarketCard from "../components/MarketCard";
 import Filter from "../components/Filter";
-import { Container } from "react-bootstrap";
+import { Container, Form, Row, Col } from "react-bootstrap";
 
-const Home = () => {
+const AdminMarket = () => {
   return (
     <React.Fragment>
       <Seo>
         <header>
           <Navigation />
-          <div className="banner"></div>
         </header>
         <main id="main">
           <section className="md-top">
             <Container>
               <div className="d-flex justify-content-between align-items-baseline">
-                <h2 className="green md-font">All Markets</h2>
+                <h1 className="green md-font">All Markets</h1>
                 <button className="mp-btn solid bg-orange">
                   <span className="fas fa-plus"></span> Add Market
                 </button>
@@ -40,4 +39,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default AdminMarket;
