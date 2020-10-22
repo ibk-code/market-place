@@ -1,31 +1,48 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { getFormattedAdrr } from "../../utils/utils";
+import { Link } from "react-router-dom";
+import { GlobalContext } from "../../context/GlobalContext";
 
-const MarketCard = ({ admin }) => {
+const MarketCard = ({ admin, market, removeMarket }) => {
+  const [tranAddr, setTranAddr] = useState("");
+  const { deleteMarket } = useContext(GlobalContext);
+
+  const getLocation = async () => {
+    const data = await getFormattedAdrr(
+      market.location.lat,
+      market.location.lng
+    );
+    setTranAddr(data);
+  };
+
+  useEffect(() => {
+    getLocation();
+  });
+
   return (
     <React.Fragment>
       <div className="market-card shadow">
-        <img src="./asset/img/market.jpg" alt="market desc" />
+        <img src={market.images[0]} alt="market desc" />
         <div className="market-info">
-          <p className="bold sm-font green">Adekunle Market</p>
+          <p className="bold sm-font green">
+            <b>Name:</b> {market.name}
+          </p>
           <p className="xs-font">
-            <b>Category:</b> {`Food Stuff`}
+            <b>Category:</b> {market.category}
           </p>
           <p className="xs-font">
             {" "}
-            <i className="fas fa-map-marker-alt"></i> Adekunle Lagos, Nigeria
+            <i className="fas fa-map-marker-alt"></i> {tranAddr}
           </p>
           <div className="d-flex justify-content-between">
             {admin && (
               <div>
-                <button>
+                <button onClick={(e) => deleteMarket(market._id)}>
                   <span className="fas fa-trash"></span>
-                </button>
-                <button className="ml-4">
-                  <span className="far fa-edit"></span>
                 </button>
               </div>
             )}
-            <button className="mp-btn">View</button>
+            <Link to={`/market-info?id=${market._id}`}>View</Link>
           </div>
         </div>
       </div>

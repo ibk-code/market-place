@@ -8,4 +8,30 @@
   background-size: cover;
   background-repeat: no-repeat;
   height: 500px;
+
+  h1 {
+    padding-top: 7rem;
+    color: #ffffff;
+    font-weight: 800;
+    letter-spacing: 10px;
+    font-size: 3.5rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .banner {
+    height: 400px;
+    h1 {
+      font-size: 2.3rem;
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .banner {
+    height: 350px;
+    h1 {
+      font-size: 1.4rem;
+    }
+  }
 }

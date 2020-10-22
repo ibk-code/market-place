@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from "react";
 import "./sass/main.scss";
+import { GlobalProvider } from "./context/GlobalContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 const Home = lazy(() => import("./pages/home"));
 const AdminSignIn = lazy(() => import("./pages/adminSignIn"));
@@ -9,24 +10,24 @@ const MarketDetails = lazy(() => import("./pages/marketDetails"));
 
 // let feeds = new News();
 
-class App extends React.Component {
-  render() {
-    return (
-      <React.Fragment>
-        <Router>
-          <Suspense fallback={<div>Loading....</div>}>
-            <Switch>
+const App = () => {
+  return (
+    <React.Fragment>
+      <Router>
+        <Suspense fallback={<div>Loading....</div>}>
+          <Switch>
+            <GlobalProvider>
               <Route path="/" exact component={Home} />
-              <Route path="/admin-sign" exact component={AdminSignIn} />
-              <Route path="/add-market" exact component={AddMarket} />
-              <Route path="/admin-market" exact component={AdminMarket} />
-              <Route path="/market-info" exact component={MarketDetails} />
-            </Switch>
-          </Suspense>
-        </Router>
-      </React.Fragment>
-    );
-  }
-}
+              <Route path="/admin-sign" component={AdminSignIn} />
+              <Route path="/add-market" component={AddMarket} />
+              <Route path="/admin-market" component={AdminMarket} />
+              <Route path="/market-info" component={MarketDetails} />
+            </GlobalProvider>
+          </Switch>
+        </Suspense>
+      </Router>
+    </React.Fragment>
+  );
+};
 
 export default App;

@@ -7,11 +7,9 @@ import {
 } from "react-google-maps";
 
 const MapContainer = withScriptjs(
-  withGoogleMap((props) => (
-    <GoogleMap defaultZoom={8} defaultCenter={{ lat: -34.397, lng: 150.644 }}>
-      {props.isMarkerShown && (
-        <Marker position={{ lat: -34.397, lng: 150.644 }} />
-      )}
+  withGoogleMap(({ lat, lng, isMarkerShown }) => (
+    <GoogleMap defaultZoom={8} defaultCenter={{ lat, lng }}>
+      {isMarkerShown && <Marker position={{ lat, lng }} />}
     </GoogleMap>
   ))
 );

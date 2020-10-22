@@ -8,11 +8,13 @@ import dbConnect from "./configuration";
 import indexRouter from "./routes/index";
 import usersRouter from "./routes/users";
 import authRouter from "./auth/route";
+import adminRouter from "./market/route";
 
 let app = express();
 dotenv.config();
 app.use(logger("dev"));
-app.use(express.json());
+app.use("/uploads", express.static("uploads"));
+app.use(express.json({ limit: "50mb", extended: true }));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "../public")));
@@ -34,6 +36,7 @@ app.use((req, res, next) => {
 
 app.use("/", indexRouter);
 app.use("/v1", authRouter);
+app.use("/v1", adminRouter);
 app.use("/users", usersRouter);
 
 export default app;

@@ -3,6 +3,7 @@
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
   height: 300px;
+  margin-top: 1.5rem;
   width: 300px;
 
   img {
@@ -17,7 +18,8 @@
     line-height: 0.9;
     padding: 1.3rem;
 
-    button {
+    button,
+    a {
       background-color: transparent;
       border: none;
       color: $shade-grey;
